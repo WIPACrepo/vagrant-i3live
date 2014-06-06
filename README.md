@@ -42,15 +42,15 @@ forked `https://github.com:/WIPACrepo/IceCube-Live` to that account, then:
 
     vagrant ssh # if you didn't already do it
 
-You're now logged in.  Set up your identity for `git`, e.g.:
-
-    git config --global user.name "Ada Lovelace”
-    git config --global user.email "ada@npxdesigns.com”
-
-This will be automated later on, but for now you need to install scipy
+This step will be automated later on, but for now you need to install scipy
 manually (note: installing this module can take up to half an hour)
 
     pip install scipy==0.14.0
+
+Set up your identity for `git`, e.g.:
+
+    git config --global user.name "Ada Lovelace”
+    git config --global user.email "ada@npxdesigns.com”
 
 Also in your VM, `git clone` *your* fork of I3Live. Note that you
 should not clone the `WIPACrepo` fork: you want to be able to push
