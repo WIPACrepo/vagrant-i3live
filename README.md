@@ -12,7 +12,7 @@ Dependencies you'll need to install:
 
 To create the VM:
 
-1. `git clone https://github.com/eigenhombre/vagrant-i3live.git vagrant-i3live`
+1. `git clone https://github.com/WIPACrepo/vagrant-i3live.git vagrant-i3live`
 1. `cd vagrant-i3live`
 1. `git submodule init`
 1. `git submodule update`
@@ -38,7 +38,7 @@ writing I3Live code (files in `/vagrant` on the guest Sci Linux 6
 guest will be the same as those in your original Vagrant directory.
 
 Assuming your GitHub username is `githubber`, and you've
-forked `https://github.com:/eigenhombre/IceCube-Live` to that account, then:
+forked `https://github.com:/WIPACrepo/IceCube-Live` to that account, then:
 
     vagrant ssh # if you didn't already do it
 
@@ -47,8 +47,13 @@ You're now logged in.  Set up your identity for `git`, e.g.:
     git config --global user.name "Ada Lovelace”
     git config --global user.email "ada@npxdesigns.com”
 
+This will be automated later on, but for now you need to install scipy
+manually (note: installing this module can take up to half an hour)
+
+    pip install scipy==0.14.0
+
 Also in your VM, `git clone` *your* fork of I3Live. Note that you
-should not clone the `eigenhombre` fork: you want to be able to push
+should not clone the `WIPACrepo` fork: you want to be able to push
 any local changes you make on the VM up to your fork and issue pull
 requests from there:
 
@@ -60,7 +65,7 @@ requests from there:
 
     cd live
     # Do once:
-    git remote add upstream git@github.com:eigenhombre/IceCube-Live.git
+    git remote add upstream git@github.com:WIPACrepo/IceCube-Live.git
     # Do occasionally:
     git fetch upstream; git merge upstream/master
 
