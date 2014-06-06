@@ -43,7 +43,7 @@ forked `https://github.com:/WIPACrepo/IceCube-Live` to that account, then:
     vagrant ssh # if you didn't already do it
 
 This step will be automated later on, but for now you need to install scipy
-manually (note: installing this module can take up to half an hour)
+manually (note: installing this module can take 15-45 minutes)
 
     pip install scipy==0.14.0
 
