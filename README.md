@@ -57,12 +57,14 @@ should not clone the `WIPACrepo` fork: you want to be able to push
 any local changes you make on the VM up to your fork and issue pull
 requests from there:
 
+    # Get into the shared partition
     cd /vagrant
     # change githubber to your username:
     git clone git@github.com:githubber/IceCube-Live.git live  
 
 ... and make sure it's up to date with the latest production master:
 
+    # Get into the /vagrant/live directory created by the clone command
     cd live
     # Do once:
     git remote add upstream git@github.com:WIPACrepo/IceCube-Live.git
