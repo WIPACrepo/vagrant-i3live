@@ -4,13 +4,46 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
+box = 'scientificlinux-61'
+url = 'http://vagrant.phys.uvic.ca/scientificlinux-61.box'
+ram = 1024
+hostname = 'SL61'
+
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "base"
+  config.vm.box = box
+  config.vm.box_url = url
+  config.vm.host_name = hostname
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
+  # config.ssh.forward_agent = true
+  
+  # Customize VM ram size
+  config.vm.provider :virtualbox do |vbox|
+      vbox.customize ["modifyvm", :id, "--memory", ram]
+  end
+
+  # Needed for pip, ...
+  config.vm.provision "shell", path: "bash/install-epel.sh"
+  # Needed for mongo
+  config.vm.provision "shell", path: "bash/install-mongo.sh"
+  # Install other software dependencies for live
+  config.vm.provision "shell", path: "bash/install-live-deps.sh"
+
+  # Use puppet for all other VM dependencies -- described in manifest files
+#  config.vm.provision :puppet do |puppet|
+#    puppet.manifests_path = 'puppet/manifests'
+#    puppet.manifest_file = 'site.pp'
+#    puppet.module_path = 'puppet/modules'
+#    # puppet.options = "--verbose --debug"
+#  end
+
+###  # FIXME: kludge, this should probably be in Puppet:
+###  config.vm.provision :shell, :inline => "grep 'source ~/venv/bin/activate' .bashrc || (echo 'source ~/venv/bin/activate' >> .bashrc)"  ###############################
+
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
