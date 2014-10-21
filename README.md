@@ -14,8 +14,6 @@ To create the VM:
 
 1. `git clone https://github.com/WIPACrepo/vagrant-i3live.git vagrant-i3live`
 1. `cd vagrant-i3live`
-1. `git submodule init`
-1. `git submodule update`
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
 The directory from which you run `vagrant up` will be shared on the VM
@@ -42,15 +40,10 @@ forked `https://github.com:/WIPACrepo/IceCube-Live` to that account, then:
 
     vagrant ssh # if you didn't already do it
 
-This step will be automated later on, but for now you need to install scipy
-manually (note: installing this module can take 15-45 minutes)
-
-    pip install scipy==0.14.0
-
 Set up your identity for `git`, e.g.:
 
-    git config --global user.name "Ada Lovelace”
-    git config --global user.email "ada@npxdesigns.com”
+    git config --global user.name "Bill Murray”
+    git config --global user.email "bill@murray.com”
 
 Also in your VM, `git clone` *your* fork of I3Live. Note that you
 should not clone the `WIPACrepo` fork: you want to be able to push
@@ -126,3 +119,4 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 
 (Basically, use at your own risk.)
+

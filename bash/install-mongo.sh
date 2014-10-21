@@ -1,3 +1,5 @@
+rm echo "---[ Adding mongodb repository ]---"
+
 cat > /etc/yum.repos.d/mongodb.repo << EOF
 [mongodb]
 name=MongoDB Repository
