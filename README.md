@@ -10,16 +10,19 @@ Dependencies you'll need to install:
 1. [Virtualbox](https://www.virtualbox.org/).
 1. [Vagrant](http://vagrantup.com/).
 
-To create the VM (replace `some_directory` by any name to your convenience):
+To create the VM:
 
-1. `mkdir some_directory`
-1. `git clone https://github.com/eigenhombre/vagrant-i3live.git some_directory` or otherwise checkout this repository
-1. `cd` into the resulting directory
+1. `git clone https://github.com/WIPACrepo/vagrant-i3live.git vagrant-i3live`
+1. `cd vagrant-i3live`
 1. `vagrant up`  **NOTE:** This will take awhile the first time you run it.
 
 The directory from which you run `vagrant up` will be shared on the VM
 in `/vagrant`. This means you can edit files on your laptop and they
 will show up in the VM (and vice-versa).
+
+You should be sure you've added your laptop's public key to GitHub.
+You also will want to set `ForwardAgent yes` in your ssh config file
+(or else you will have to make and upload a public key on the VM).
 
 To login:
 
@@ -32,26 +35,32 @@ is recommended that you do this **in the shared directory**
 writing I3Live code (files in `/vagrant` on the guest Sci Linux 6
 guest will be the same as those in your original Vagrant directory.
 
-For example, assuming your GitHub username is `githubber`, and you've
-forked `https://github.com:/eigenhombre/IceCube-Live` to that account,
-as well as added your public key to GitHub, then:
+Assuming your GitHub username is `githubber`, and you've
+forked `https://github.com:/WIPACrepo/IceCube-Live` to that account, then:
 
     vagrant ssh # if you didn't already do it
 
-... in your VM, `git clone` *your* fork of I3Live. Note that you
-should not clone the `eigenhombre` fork: you want to be able to push
+Set up your identity for `git`, e.g.:
+
+    git config --global user.name "Bill Murray”
+    git config --global user.email "bill@murray.com”
+
+Also in your VM, `git clone` *your* fork of I3Live. Note that you
+should not clone the `WIPACrepo` fork: you want to be able to push
 any local changes you make on the VM up to your fork and issue pull
 requests from there:
 
+    # Get into the shared partition
     cd /vagrant
     # change githubber to your username:
     git clone git@github.com:githubber/IceCube-Live.git live  
 
 ... and make sure it's up to date with the latest production master:
 
+    # Get into the /vagrant/live directory created by the clone command
     cd live
     # Do once:
-    git remote add upstream git@github.com:eigenhombre/IceCube-Live.git
+    git remote add upstream git@github.com:WIPACrepo/IceCube-Live.git
     # Do occasionally:
     git fetch upstream; git merge upstream/master
 
@@ -68,14 +77,6 @@ The last step will download needed Python dependencies.
 it should still work fine (it seems to be a result of a slightly flaky
 dependency installation process); if in doubt, run `./setup.py
 develop` again.
-
-*NOTE*: At the moment, the `python-twitter` module must be installed
- manually as well:
-
-    pip install python-twitter
-
-This is due to a conflict with I3Live's Fabric / Kickstart
-installation which is under investigation.
 
 The before running the database server or webserver (or whenever the
 I3Live view code is updated), you'll want to set up the MySQL DB:
@@ -118,3 +119,4 @@ OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 OR OTHER DEALINGS IN THE SOFTWARE.
 
 (Basically, use at your own risk.)
+
