@@ -1,6 +1,6 @@
 echo "---[ Installing required system libraries ]---"
 
-sudo yum install -y wget man zeromq3 zeromq3-devel python-zmq gcc gcc-c++ git diffutils blas-devel lapack-devel mysql mysql-server mysql-devel libxml2 libxml2-devel libxslt libxslt-devel mongodb-org python-virtualenv python-zmq
+sudo yum install -y wget man zeromq3 zeromq3-devel python-zmq gcc gcc-c++ git diffutils blas-devel lapack-devel mysql mysql-server mysql-devel libxml2 libxml2-devel libxslt libxslt-devel mongodb-org python-virtualenv python-zmq memcached
 
 
 echo "---[ Starting DB servers ]---"
@@ -28,5 +28,5 @@ su vagrant <<'EOF'
 virtualenv ~/env --system-site-packages
 source ~/env/bin/activate
 echo "source ~/env/bin/activate" >> ~/.bashrc
-pip install Django==1.4 MySQL-python South argparse colorama fabric lxml nose numpy ordereddict pep8==0.6.1 pyephem pycrypto pymongo python-twitter simplejson conttest textile toolz scipy
+pip install Django==1.4 MySQL-python South argparse colorama fabric lxml nose numpy ordereddict pep8==0.6.1 pyephem pycrypto pymongo python-twitter simplejson conttest textile toolz python-memcached scipy
 EOF
