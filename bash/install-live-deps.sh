@@ -9,6 +9,11 @@ sudo service mongod start
 sudo service mysqld start
 
 
+echo "---[ Make sure MySQL starts at boot time ]---"
+
+sudo chkconfig mysql on
+
+
 echo "---[ Create MySQL databases ]---"
 
 /usr/bin/mysql -uroot -e "create database live; grant all on live.* to live@localhost;"
@@ -16,7 +21,7 @@ echo "---[ Create MySQL databases ]---"
 /usr/bin/mysql -uroot -e "create database I3OmDb_test; grant all on I3OmDb_test.* to live@localhost;"
 
 
-echo "---[ Turning off firewall ]---"
+echo "---[ Turning off firewall for good ]---"
 
 sudo service iptables stop
 sudo chkconfig iptables off
