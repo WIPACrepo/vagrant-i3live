@@ -11,7 +11,7 @@ sudo service mysqld start
 
 echo "---[ Make sure MySQL starts at boot time ]---"
 
-sudo chkconfig mysql on
+sudo chkconfig mysqld on
 
 
 echo "---[ Create MySQL databases ]---"
