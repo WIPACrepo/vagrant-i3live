@@ -20,6 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Customize VM ram size
   config.vm.provider :virtualbox do |vbox|
       vbox.customize ["modifyvm", :id, "--memory", ram]
+      vbox.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vbox.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
 
   # Needed for pip, ...
