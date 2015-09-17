@@ -9,6 +9,11 @@ sudo service mongod start
 sudo service mysqld start
 
 
+echo "---[ Make sure redis starts at boot time ]---"
+
+sudo chkconfig redis on
+
+
 echo "---[ Make sure MySQL starts at boot time ]---"
 
 sudo chkconfig mysqld on
