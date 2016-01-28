@@ -38,5 +38,5 @@ su vagrant <<'EOF'
 virtualenv ~/env --system-site-packages
 source ~/env/bin/activate
 echo "source ~/env/bin/activate" >> ~/.bashrc
-pip install Django==1.4 MySQL-python South argparse colorama fabric lxml nose numpy==1.9.2 ordereddict pep8==0.6.1 pyephem pycrypto pymongo==2.7.2 python-twitter simplejson conttest textile toolz python-memcached scipy==0.14.0 django_redis==3.8
+pip install Django==1.6.11 MySQL-python South argparse colorama fabric lxml nose numpy==1.9.2 ordereddict pep8==0.6.1 pyephem pycrypto pymongo==2.7.2 python-twitter conttest toolz python-memcached scipy==0.14.0 django_redis==3.8
 EOF
