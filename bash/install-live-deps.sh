@@ -3,10 +3,11 @@ echo "---[ Installing required system libraries ]---"
 sudo yum install -y wget man zeromq3 zeromq3-devel python-zmq gcc gcc-c++ git diffutils blas-devel lapack-devel mysql mysql-server mysql-devel libxml2 libxml2-devel libxslt libxslt-devel mongodb-org python-virtualenv python-zmq memcached redis
 
 
-echo "---[ Starting DB servers ]---"
+echo "---[ Starting DB/cache servers ]---"
 
 sudo service mongod start
 sudo service mysqld start
+sudo service redis start
 
 
 echo "---[ Make sure redis starts at boot time ]---"

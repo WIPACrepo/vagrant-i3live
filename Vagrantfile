@@ -4,8 +4,8 @@
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
-box = 'scientificlinux-61'
-url = 'http://vagrant.phys.uvic.ca/scientificlinux-61.box'
+box = 'scientificlinux-61-new'
+url = 'https://atlas.hashicorp.com/ringo/boxes/scientific-linux-6.1/versions/0.3/providers/virtualbox.box'
 ram = 1024
 hostname = 'SL61'
 
@@ -16,7 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.host_name = hostname
   config.vm.network "forwarded_port", guest: 8000, host: 8000
   # config.ssh.forward_agent = true
-  
+  config.ssh.pty= true
+
   # Customize VM ram size
   config.vm.provider :virtualbox do |vbox|
       vbox.customize ["modifyvm", :id, "--memory", ram]
