@@ -42,8 +42,8 @@ forked `https://github.com:/WIPACrepo/IceCube-Live` to that account, then:
 
 Set up your identity for `git`, e.g.:
 
-    git config --global user.name "Bill Murray”
-    git config --global user.email "bill@murray.com”
+    git config --global user.name "Bill Murray"
+    git config --global user.email "bill@murray.com"
 
 Also in your VM, `git clone` *your* fork of I3Live. Note that you
 should not clone the `WIPACrepo` fork: you want to be able to push
